@@ -107,30 +107,39 @@ const App = () => {
             </div>
           </div>
 
-          <div className="relative group">
-            {/* 은은한 배경 글로우 */}
-            <div className="absolute -inset-4 bg-blue-600/10 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="relative group max-w-[400px] mx-auto md:mx-0">
+            {/* 명함 레이아웃 */}
+            <div className="relative p-1 rounded-sm overflow-hidden bg-transparent">
+              <div className="relative aspect-[3/4] flex items-center justify-center">
+                <img
+                  src="./images/profile.jpg"
+                  onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1000&auto=format&fit=crop'; }}
+                  alt="Nam Gi Woong"
+                  className="w-full h-full object-cover transition-all duration-700"
+                  style={{
+                    mixBlendMode: 'multiply',
+                    filter: 'contrast(1.1) brightness(1.1)'
+                  }}
+                />
 
-            <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-[#0a0c10]">
-              <img
-                src="./images/profile.jpg"
-                onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1000&auto=format&fit=crop'; }}
-                alt="Nam Gi Woong"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+                {/* 명함 정보 오버레이 (미니멀하게) */}
+                <div className="absolute inset-0 border-[0.5px] border-white/10 pointer-events-none" />
 
-              {/* 하단 텍스트 가독성을 위한 하단 그라데이션 오버레이 */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent opacity-80" />
+                {/* 코너 포인트 (명함 디테일) */}
+                <div className="absolute top-0 left-0 w-4 h-[0.5px] bg-white/20" />
+                <div className="absolute top-0 left-0 w-[0.5px] h-4 bg-white/20" />
+                <div className="absolute bottom-0 right-0 w-4 h-[0.5px] bg-white/20" />
+                <div className="absolute bottom-0 right-0 w-[0.5px] h-4 bg-white/20" />
+              </div>
 
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="text-white text-3xl font-black tracking-tighter drop-shadow-lg">NAM GI WOONG</div>
-                <div className="text-blue-400 font-bold uppercase tracking-widest text-[10px] mt-1 opacity-90">Researcher / Master of Science</div>
+              <div className="mt-8 space-y-2 border-l-2 border-blue-600 pl-6">
+                <div className="text-white text-4xl font-black tracking-tighter">NAM GI WOONG</div>
+                <div className="flex flex-col gap-1">
+                  <span className="text-blue-400 font-bold uppercase tracking-[0.2em] text-[10px]">R&D Architect / Master of Science</span>
+                  <span className="text-slate-500 text-[10px] tracking-widest uppercase">Specializing in Bioinformatics & Protein Engineering</span>
+                </div>
               </div>
             </div>
-
-            {/* 장식용 디테일 요소 (모서리 강조) */}
-            <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-blue-500/30 rounded-tl-xl" />
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-blue-500/30 rounded-br-xl" />
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-600">
