@@ -108,28 +108,29 @@ const App = () => {
           </div>
 
           <div className="relative group">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] bg-blue-600/5 rounded-full blur-[150px] pointer-events-none" />
-            <div className="relative w-full aspect-[4/5] flex items-center justify-center">
+            {/* 은은한 배경 글로우 */}
+            <div className="absolute -inset-4 bg-blue-600/10 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+            <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-[#0a0c10]">
               <img
                 src="./images/profile.jpg"
                 onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1000&auto=format&fit=crop'; }}
                 alt="Nam Gi Woong"
-                className="w-full h-full object-cover transition-all duration-1000"
-                style={{
-                  /* 얼굴(상단 중앙)만 남기고 나머지는 배어 나오듯 지움 */
-                  maskImage: 'radial-gradient(ellipse 55% 70% at 50% 40%, black 5%, transparent 75%)',
-                  WebkitMaskImage: 'radial-gradient(ellipse 55% 70% at 50% 40%, black 5%, transparent 75%)',
-                  /* 배경색과 이질감을 줄이기 위해 대비와 밝기 조정 */
-                  filter: 'contrast(1.05) brightness(0.95)',
-                }}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#020408] via-[#020408]/20 to-transparent pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-[#020408]/30 pointer-events-none" />
-              <div className="absolute bottom-10 left-0 right-0 text-center z-10">
-                <div className="text-white text-4xl font-black tracking-tighter drop-shadow-[0_10px_10px_rgba(0,0,0,0.8)]">NAM GI WOONG</div>
-                <div className="text-blue-400 font-bold uppercase tracking-[0.4em] text-[10px] mt-2">Researcher / Master of Science</div>
+
+              {/* 하단 텍스트 가독성을 위한 하단 그라데이션 오버레이 */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent opacity-80" />
+
+              <div className="absolute bottom-8 left-8 right-8">
+                <div className="text-white text-3xl font-black tracking-tighter drop-shadow-lg">NAM GI WOONG</div>
+                <div className="text-blue-400 font-bold uppercase tracking-widest text-[10px] mt-1 opacity-90">Researcher / Master of Science</div>
               </div>
             </div>
+
+            {/* 장식용 디테일 요소 (모서리 강조) */}
+            <div className="absolute -top-2 -left-2 w-8 h-8 border-t-2 border-l-2 border-blue-500/30 rounded-tl-xl" />
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-blue-500/30 rounded-br-xl" />
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-slate-600">
