@@ -108,7 +108,7 @@ const App = () => {
           </div>
 
           <div className="relative group">
-            <div className="absolute -inset-20 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="relative w-full aspect-[4/5] flex items-center justify-center">
               <img
                 src="./images/profile.jpg"
@@ -116,14 +116,14 @@ const App = () => {
                 alt="Nam Gi Woong"
                 className="w-full h-full object-cover transition-all duration-1000"
                 style={{
-                  maskImage: 'radial-gradient(circle at center, black 30%, transparent 75%)',
-                  WebkitMaskImage: 'radial-gradient(circle at center, black 30%, transparent 75%)'
+                  maskImage: 'radial-gradient(ellipse 50% 65% at 50% 45%, black 10%, transparent 80%)',
+                  WebkitMaskImage: 'radial-gradient(ellipse 50% 65% at 50% 45%, black 10%, transparent 80%)'
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-10 left-10 right-10 z-10">
-                <div className="text-white text-3xl font-black tracking-tighter drop-shadow-2xl">NAM GI WOONG</div>
-                <div className="text-blue-400 font-bold uppercase tracking-widest text-xs mt-1">Researcher / Master of Science</div>
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#020408] via-[#020408]/40 to-transparent pointer-events-none" />
+              <div className="absolute bottom-6 left-0 right-0 text-center z-10">
+                <div className="text-white text-4xl font-black tracking-tighter drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">NAM GI WOONG</div>
+                <div className="text-blue-400 font-bold uppercase tracking-[0.3em] text-[10px] mt-2">Researcher / Master of Science</div>
               </div>
             </div>
           </div>
