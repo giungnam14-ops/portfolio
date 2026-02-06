@@ -327,11 +327,10 @@ const App = () => {
               {[
                 {
                   icon: <Dna className="w-8 h-8" />,
-                  title: '건강기능식품',
+                  title: '기존연구',
                   points: [
                     '천연물 유래 성분의 기능성 지표 설정',
-                    '효능 입증을 위한 In vitro/In vivo 데이터 구축',
-                    '식약처 인정 시험법 기반 분석'
+                    '효능 입증을 위한 In vitro/In vivo 데이터 구축'
                   ],
                   gradient: 'from-blue-600 to-cyan-600'
                 },
@@ -347,11 +346,10 @@ const App = () => {
                 },
                 {
                   icon: <FileText className="w-8 h-8" />,
-                  title: '규제 대응',
+                  title: '보고서 작성',
                   points: [
-                    'MFDS 과제 수행 경험',
-                    '식약처 기준 준수 보고서 작성',
-                    'GLP 수준의 실험 설계 및 문서화'
+                    '위해성 평가 보고서 작성',
+                    '식약처 가이드라인 검토 후 보고서 작성'
                   ],
                   gradient: 'from-purple-600 to-pink-600'
                 }
