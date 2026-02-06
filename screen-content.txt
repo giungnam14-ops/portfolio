@@ -1,0 +1,40 @@
+
+=== INTRO SCREEN ===
+Main Headline: 분자의 언어를 해석하여, 제품의 독보적인 과학적 근거를 설계합니다
+Sub Headline: 정밀한 데이터의 궤적을 쫓아, 연구를 넘어선 비즈니스의 확신을 제안하는 설계자 남기웅입니다.
+Profile: 연구자로서의 신뢰감을 주는 고해상도 인물 사진 배치.
+
+=== RESEARCH IDENTITY ===
+Research Focus: 선천 면역 센서 cGAS/STING 경로를 활용한 염증 조절 기전 규명 및 후보 물질의 상세 작용 원리 분석.
+Core Research Question: 세포 내 DNA 감지 센서인 STING의 비정상적 활성을 어떻게 제어하여 만성 염증을 억제할 것인가?
+Research Philosophy: 실험실의 데이터는 제품의 과학적 신뢰를 뒷받침하는 가장 강력한 객관적 근거입니다.
+
+=== THESIS-BASED RESEARCH HIGHLIGHT ===
+Research Topic: Licochalcone A에 의한 cGAS/STING 경로 억제 및 항염증 기전 연구.
+Why This Research Matters: 과도한 면역 활성으로 인한 자가면역 및 염증성 질환 치료의 핵심 타겟으로서 cGAS/STING의 조절 잠재력 확인.
+Experimental Approach: THP-1 및 BMDM 세포 모델을 활용하여 후보 물질의 STING 인산화 단계별 차단 효능 검증.
+Key Observations: Licochalcone A가 STING 하위 신호인 TBK1 및 IRF3의 활성화를 선택적으로 차단하여 염증 반응을 하향 조절하는 핵심 작용 원리를 입증.
+
+=== CORE PROJECT (Applied R&D View) ===
+Project Title: 천연물 유래 성분의 항염 기전 규명 및 데이터 패키징.
+Problem Definition: 기존 항염 소자의 부작용을 보완할 수 있는 고효율·저독성 천연물 후보 물질의 상세 작용 원리 근거 부족 해결 필요.
+Approach & Methods: Luciferase Assay를 통한 전사 활성 측정 및 Western Blot 기반 단백질 발현 분석을 통한 기전 교차 검증.
+Practical R&D Implications: 성분의 함량 가이드라인 수립 및 학술적 근거에 기반한 마케팅 소구점(Point of Difference) 강화 데이터로 활용.
+
+=== RESEARCH INFRASTRUCTURE (Expertise) ===
+Experimental Design: 연구 목적에 부합하는 대조군 설정 및 가설 증명을 위한 최적의 실험 Flow 설계 역량.
+In Vitro / Cell-based Assays: 다각도의 세포 독성 테스트(MTT/CCK-8) 및 사이토카인(ELISA) 발현 정량 분석.
+Protein / Biomarker Analysis: Western Blot 및 RT-qPCR을 활용한 특정 단백질 및 mRNA 수준의 유효 지표 변화 추적.
+Data Interpretation & Reporting: 통계 프로그램 기반 유의성 검정 및 화장품 성분 위해성평가 보고서 등 규제 대응용 문서 작성.
+
+=== PROBLEM SOLVING STORY ===
+Problem Situation: 실험 과정 중 사이토카인 정량 수치가 이전 결과와 상이하게 도출되는 재현성 문제 발생.
+Action Taken: 환경 변수를 일원화한 표준 작업 지침서(SOP) 수립 및 시약 보관 방식 개편.
+Outcome: 실험 재현성 100% 확보 및 연구 신뢰도 상향 평준화 기여.
+
+=== INDUSTRY APPLICATION ===
+Health Functional Food R&D: 개별 인정형 원료 등록을 위한 기전 근거 구축 및 과학적 데이터 패키징 지원.
+Pharmaceutical / Bio R&D: 바이오 소재의 초기 효능 평가 및 분자 수준의 상세 기전 규명 프로세스 최적화.
+
+=== CLOSING MESSAGE ===
+Closing Text: 정밀한 분석과 재현성 있는 데이터로 제품의 가치를 증명하는 연구자, 남기웅입니다.
