@@ -107,36 +107,39 @@ const App = () => {
             </div>
           </div>
 
-          <div className="relative group max-w-[400px] mx-auto md:mx-0">
-            {/* 명함 레이아웃 */}
-            <div className="relative p-1 rounded-sm overflow-hidden bg-transparent">
-              <div className="relative aspect-[3/4] flex items-center justify-center">
+          <div className="relative group max-w-[450px] mx-auto md:mx-0">
+            {/* 명함 레이아웃 (배경 광채) */}
+            <div className="absolute -inset-20 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none opacity-50" />
+
+            <div className="relative p-2 flex flex-col items-center md:items-start">
+              {/* 사진 영역: 액자 틀 없이 자연스럽게 스며드는 효과 */}
+              <div className="relative w-72 h-96 mb-8">
                 <img
                   src="./images/profile.jpg"
                   onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1000&auto=format&fit=crop'; }}
                   alt="Nam Gi Woong"
-                  className="w-full h-full object-cover transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-1000"
                   style={{
-                    mixBlendMode: 'multiply',
-                    filter: 'contrast(1.1) brightness(1.1)'
+                    /* 사진 배경(흰색/회색)을 어두운 화면과 부드럽게 연결하는 마스크 */
+                    maskImage: 'radial-gradient(ellipse 60% 80% at 50% 45%, black 20%, transparent 90%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 60% 80% at 50% 45%, black 20%, transparent 90%)'
                   }}
                 />
 
-                {/* 명함 정보 오버레이 (미니멀하게) */}
-                <div className="absolute inset-0 border-[0.5px] border-white/10 pointer-events-none" />
-
-                {/* 코너 포인트 (명함 디테일) */}
-                <div className="absolute top-0 left-0 w-4 h-[0.5px] bg-white/20" />
-                <div className="absolute top-0 left-0 w-[0.5px] h-4 bg-white/20" />
-                <div className="absolute bottom-0 right-0 w-4 h-[0.5px] bg-white/20" />
-                <div className="absolute bottom-0 right-0 w-[0.5px] h-4 bg-white/20" />
+                {/* 사진 하단 부드러운 삭제 (검은 스크린으로 스며듦) */}
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#020408] to-transparent pointer-events-none" />
               </div>
 
-              <div className="mt-8 space-y-2 border-l-2 border-blue-600 pl-6">
-                <div className="text-white text-4xl font-black tracking-tighter">NAM GI WOONG</div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-blue-400 font-bold uppercase tracking-[0.2em] text-[10px]">R&D Architect / Master of Science</span>
-                  <span className="text-slate-500 text-[10px] tracking-widest uppercase">Specializing in Bioinformatics & Protein Engineering</span>
+              {/* 명함 스타일 정보 영역 */}
+              <div className="space-y-3 border-l-[3px] border-blue-600 pl-8 py-2">
+                <div className="space-y-1">
+                  <div className="text-white text-5xl font-black tracking-tighter leading-none mb-2">NAM GI WOONG</div>
+                  <div className="text-blue-400 font-bold uppercase tracking-[0.25em] text-xs">R&D Architect / Master of Science</div>
+                </div>
+                <div className="h-[1px] w-24 bg-white/10 my-4" />
+                <div className="text-slate-500 text-[11px] leading-relaxed tracking-widest uppercase max-w-[300px]">
+                  Specializing in Bioinformatics, Protein Engineering, <br />
+                  and Data-Driven Research Methodologies
                 </div>
               </div>
             </div>
