@@ -108,16 +108,17 @@ const App = () => {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-10 bg-blue-600/20 rounded-full blur-[120px] animate-pulse" />
-            <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
+            <div className="absolute -inset-10 bg-blue-600/10 rounded-full blur-[100px]" />
+            <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden">
               <img
                 src="./images/profile.jpg"
                 onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1000&auto=format&fit=crop'; }}
                 alt="Nam Gi Woong"
-                className="w-full h-full object-cover filter contrast-125 brightness-90 grayscale hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-10 left-10">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-[#020408]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#020408]/60 via-transparent to-[#020408]/60" />
+              <div className="absolute bottom-10 left-10 right-10">
                 <div className="text-white text-3xl font-black tracking-tighter">NAM GI WOONG</div>
                 <div className="text-blue-400 font-bold uppercase tracking-widest text-xs mt-1">Researcher / Master of Science</div>
               </div>
