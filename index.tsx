@@ -408,7 +408,7 @@ const App = () => {
             </h2>
             <div className="flex flex-col items-center gap-8">
               <a
-                href="mailto:ngw0509@naver.com"
+                href="mailto:giunganm14@gmail.com"
                 className="group relative px-12 py-6 bg-white text-black font-black text-2xl rounded-3xl overflow-hidden transition-all hover:scale-105"
               >
                 <span className="relative z-10">Get in Touch</span>
