@@ -1,20 +1,21 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import './index.css';
 import { createRoot } from 'react-dom/client';
-import { 
-  Dna, 
-  Microscope, 
-  Target, 
-  ChevronDown, 
-  ArrowRight, 
-  FileText, 
-  Layers, 
-  Search, 
+import {
+  Dna,
+  Microscope,
+  Target,
+  ChevronDown,
+  ArrowRight,
+  FileText,
+  Layers,
+  Search,
   Award,
   Database,
   Globe,
   FlaskConical,
-  Activity, 
+  Activity,
   Zap,
   TestTube2,
   BarChart3,
@@ -44,20 +45,20 @@ const CONTENT = {
     sub: "정밀한 데이터 흐름과 재현성 있는 실험으로 연구를 비즈니스 가치로 연결합니다.",
   },
   about: [
-    { 
-      title: "About Me", 
-      desc: "저는 면역 반응과 기능성 소재의 효과를 연구하며, 실험 결과를 단순히 수치로 비교하기보다 어떤 상황에서 어떤 변화가 나타났는지를 중심으로 살펴왔습니다. 연구 과정 전반에서 결과의 의미를 스스로 납득할 때까지 고민하는 편입니다.", 
-      icon: <User className="w-6 h-6 text-emerald-400" /> 
+    {
+      title: "About Me",
+      desc: "저는 면역 반응과 기능성 소재의 효과를 연구하며, 실험 결과를 단순히 수치로 비교하기보다 어떤 상황에서 어떤 변화가 나타났는지를 중심으로 살펴왔습니다. 연구 과정 전반에서 결과의 의미를 스스로 납득할 때까지 고민하는 편입니다.",
+      icon: <User className="w-6 h-6 text-emerald-400" />
     },
-    { 
-      title: "How I Research", 
-      desc: "연구를 진행할 때 “이 결과가 왜 나왔인지”를 먼저 생각합니다. 실험 설계부터 결과 해석까지의 흐름이 끊기지 않도록 신경 쓰며, 가능한 한 메커니즘 관점에서 설명하려고 노력해 왔습니다.", 
-      icon: <Lightbulb className="w-6 h-6 text-indigo-400" /> 
+    {
+      title: "How I Research",
+      desc: "연구를 진행할 때 “이 결과가 왜 나왔인지”를 먼저 생각합니다. 실험 설계부터 결과 해석까지의 흐름이 끊기지 않도록 신경 쓰며, 가능한 한 메커니즘 관점에서 설명하려고 노력해 왔습니다.",
+      icon: <Lightbulb className="w-6 h-6 text-indigo-400" />
     },
-    { 
-      title: "My Strengths", 
-      desc: "실험 결과를 지표와 맥락을 함께 놓고 해석하는 점, 실험 과정과 결과를 정리해 공유하는 데 익숙한 편, 그리고 연구 결과를 실제 활용 상황에 대입해 생각해보는 태도를 갖추고 있습니다.", 
-      icon: <BrainCircuit className="w-6 h-6 text-emerald-400" /> 
+    {
+      title: "My Strengths",
+      desc: "실험 결과를 지표와 맥락을 함께 놓고 해석하는 점, 실험 과정과 결과를 정리해 공유하는 데 익숙한 편, 그리고 연구 결과를 실제 활용 상황에 대입해 생각해보는 태도를 갖추고 있습니다.",
+      icon: <BrainCircuit className="w-6 h-6 text-emerald-400" />
     }
   ],
   lab: {
@@ -110,25 +111,25 @@ const CONTENT = {
     ]
   },
   skills: [
-    { 
-      name: "세포 실험 (In vitro)", 
-      context: "Cell culture, MTT assay, Luciferase assay, Western blot, mRNA 분리 및 qPCR", 
-      icon: <Layers className="w-5 h-5" /> 
+    {
+      name: "세포 실험 (In vitro)",
+      context: "Cell culture, MTT assay, Luciferase assay, Western blot, mRNA 분리 및 qPCR",
+      icon: <Layers className="w-5 h-5" />
     },
-    { 
-      name: "면역·단백질 분석", 
-      context: "사이토카인 및 단백질 정량 분석 (ELISA)", 
-      icon: <Dna className="w-5 h-5" /> 
+    {
+      name: "면역·단백질 분석",
+      context: "사이토카인 및 단백질 정량 분석 (ELISA)",
+      icon: <Dna className="w-5 h-5" />
     },
-    { 
-      name: "동물 실험 (In vivo)", 
-      context: "마우스 복강 내 주사, 마취, 해부, 조직 채취", 
-      icon: <Activity className="w-5 h-5" /> 
+    {
+      name: "동물 실험 (In vivo)",
+      context: "마우스 복강 내 주사, 마취, 해부, 조직 채취",
+      icon: <Activity className="w-5 h-5" />
     },
-    { 
-      name: "보고서 작성", 
-      context: "데이터 기반 보고서, 프레젠테이션 자료 작성", 
-      icon: <FileText className="w-5 h-5" /> 
+    {
+      name: "보고서 작성",
+      context: "데이터 기반 보고서, 프레젠테이션 자료 작성",
+      icon: <FileText className="w-5 h-5" />
     }
   ],
   projects: [
@@ -210,9 +211,8 @@ const ScrollReveal = ({ children }: ScrollRevealProps) => {
   return (
     <div
       ref={domRef}
-      className={`transition-all duration-1000 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-      }`}
+      className={`transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
     >
       {children}
     </div>
@@ -253,7 +253,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             {project.description}
           </p>
         </div>
-        
+
         <div className="space-y-4">
           <p className="text-[10px] font-black text-emerald-500 uppercase tracking-[0.3em]">Key Tasks & Achievements</p>
           <ul className="space-y-4">
@@ -279,7 +279,7 @@ const ThesisDetailCard = ({ detail }: ThesisDetailCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div 
+    <div
       onClick={(e) => {
         e.stopPropagation();
         setIsOpen(!isOpen);
@@ -296,7 +296,7 @@ const ThesisDetailCard = ({ detail }: ThesisDetailCardProps) => {
       <p className="text-slate-400 text-base font-medium leading-relaxed">
         {detail.content}
       </p>
-      
+
       <div className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0'}`}>
         <div className="overflow-hidden">
           <div className="pt-6 border-t border-white/10">
@@ -313,14 +313,14 @@ const ThesisDetailCard = ({ detail }: ThesisDetailCardProps) => {
                   <span className="text-[10px] font-black uppercase tracking-widest">Experimental Evidence</span>
                 </div>
                 <div className="space-y-2">
-                   <div className="flex justify-between text-[10px] font-bold text-slate-500">
-                     <span>Lico A Concentration</span>
-                     <span>Inhibition Rate</span>
-                   </div>
-                   <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                     <div className="h-full bg-emerald-500 w-[85%]" />
-                   </div>
-                   <p className="text-[10px] text-slate-500 text-right">85% Inhibition at 10μM (p &lt; 0.001)</p>
+                  <div className="flex justify-between text-[10px] font-bold text-slate-500">
+                    <span>Lico A Concentration</span>
+                    <span>Inhibition Rate</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                    <div className="h-full bg-emerald-500 w-[85%]" />
+                  </div>
+                  <p className="text-[10px] text-slate-500 text-right">85% Inhibition at 10μM (p &lt; 0.001)</p>
                 </div>
               </div>
             )}
@@ -347,13 +347,13 @@ const ThesisSection = () => {
             </p>
           </div>
 
-          <div 
+          <div
             onClick={() => setIsExpanded(!isExpanded)}
             className={`relative overflow-hidden bg-gradient-to-br from-emerald-900/20 to-indigo-900/20 border border-white/10 rounded-[4rem] p-12 md:p-20 cursor-pointer transition-all duration-700 group ${isExpanded ? 'ring-2 ring-emerald-500/50' : 'hover:bg-white/5'}`}
           >
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-500/5 to-transparent pointer-events-none" />
-            
+
             <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
               <div className="space-y-4">
                 <div className="inline-block px-4 py-1 rounded-full bg-emerald-500 text-white text-[10px] font-black tracking-widest uppercase">
@@ -386,9 +386,9 @@ const ThesisSection = () => {
                   ))}
                 </div>
                 <div className="mt-12 flex justify-center">
-                   <div className="px-10 py-4 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-bold tracking-widest uppercase">
-                     Click to close deep dive
-                   </div>
+                  <div className="px-10 py-4 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs font-bold tracking-widest uppercase">
+                    Click to close deep dive
+                  </div>
                 </div>
               </div>
             </div>
@@ -466,12 +466,12 @@ const DNABackground = () => {
 const App = () => {
   return (
     <div className="min-h-screen bg-[#020408] text-slate-300 font-sans selection:bg-emerald-500/30 selection:text-white relative overflow-x-hidden">
-      
+
       {/* --- Trendy Background Overlays --- */}
       <DNABackground />
       <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.15]" 
-           style={{ backgroundImage: 'radial-gradient(#1e293b 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-[0.15]"
+        style={{ backgroundImage: 'radial-gradient(#1e293b 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[-15%] left-[-5%] w-[50%] h-[50%] bg-emerald-600/10 rounded-full blur-[160px] animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[45%] h-[45%] bg-indigo-600/10 rounded-full blur-[160px]" style={{ animationDelay: '2s' }} />
@@ -521,14 +521,14 @@ const App = () => {
               </div>
             </div>
           </ScrollReveal>
-          
+
           <ScrollReveal>
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-tr from-emerald-600/20 to-indigo-600/20 rounded-[3rem] blur-2xl opacity-50 group-hover:opacity-100 transition-opacity" />
               <div className="relative aspect-[4/5] bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden backdrop-blur-sm shadow-2xl">
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                  <img 
-                    src="https://picsum.photos/seed/researcher/800/1000" 
+                  <img
+                    src="https://picsum.photos/seed/researcher/800/1000"
                     alt="Nam Gi Woong"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                     referrerPolicy="no-referrer"
@@ -536,8 +536,8 @@ const App = () => {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020408] via-transparent to-transparent" />
                 <div className="absolute bottom-8 left-8 right-8">
-                   <p className="text-white text-lg font-black tracking-tight">NAM GI WOONG</p>
-                   <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest mt-1">Researcher / Master of Science</p>
+                  <p className="text-white text-lg font-black tracking-tight">NAM GI WOONG</p>
+                  <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest mt-1">Researcher / Master of Science</p>
                 </div>
               </div>
             </div>
@@ -579,10 +579,10 @@ const App = () => {
               가톨릭대학교 약학대학에서 면역 반응 조절 기전을 연구하며 과학적 사고의 기초를 다졌습니다.
             </p>
           </div>
-          
+
           <div className="bg-white/[0.02] border border-white/5 rounded-[4rem] p-12 md:p-20 relative overflow-hidden group hover:bg-white/[0.04] transition-all duration-500">
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-500/5 to-transparent pointer-events-none" />
-            
+
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-10">
                 <div>
@@ -595,11 +595,11 @@ const App = () => {
                     <span>PI: {CONTENT.lab.pi}</span>
                   </div>
                 </div>
-                
+
                 <p className="text-slate-300 text-xl leading-relaxed font-medium">
                   {CONTENT.lab.description}
                 </p>
-                
+
                 <div className="grid gap-6">
                   {CONTENT.lab.focus.map((item, i) => (
                     <div key={i} className="flex gap-6 items-start p-6 rounded-3xl bg-white/5 border border-white/5 hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all group/item">
@@ -614,14 +614,14 @@ const App = () => {
                   ))}
                 </div>
               </div>
-              
+
               <div className="relative">
                 <div className="absolute -inset-4 bg-emerald-500/10 rounded-[3rem] blur-2xl opacity-50" />
                 <div className="relative aspect-video bg-white/5 border border-white/10 rounded-[2.5rem] flex items-center justify-center overflow-hidden">
-                   <div className="text-center p-10">
-                     <FlaskConical className="w-20 h-20 text-emerald-500/20 mx-auto mb-6" />
-                     <p className="text-slate-500 font-bold text-sm tracking-widest uppercase">Lab Environment & Research Focus</p>
-                   </div>
+                  <div className="text-center p-10">
+                    <FlaskConical className="w-20 h-20 text-emerald-500/20 mx-auto mb-6" />
+                    <p className="text-slate-500 font-bold text-sm tracking-widest uppercase">Lab Environment & Research Focus</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -659,7 +659,7 @@ const App = () => {
                 <div className="h-px w-8 bg-emerald-600" /> Professional Standards
               </span>
               <h3 className="text-4xl md:text-5xl font-black text-white mb-20 tracking-tight leading-tight">{CONTENT.workMethod.title}</h3>
-              
+
               <div className="grid md:grid-cols-2 gap-8">
                 {CONTENT.workMethod.points.map((point, i) => (
                   <div key={i} className="p-10 rounded-[2.5rem] bg-white/[0.03] border border-white/5 flex gap-8 items-start hover:bg-white/[0.05] transition-all group">
@@ -683,7 +683,7 @@ const App = () => {
           <span className="text-emerald-400 font-bold uppercase tracking-[0.4em] text-[10px] block mb-4">R&D Toolbox</span>
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">Expertise</h2>
         </div>
-        
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
           {CONTENT.skills.map((skill, i) => (
             <ScrollReveal key={i}>
