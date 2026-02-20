@@ -527,9 +527,9 @@ const App = () => {
               <div className="relative aspect-[4/5] bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden backdrop-blur-sm shadow-2xl">
                 <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
                   <img
-                    src="https://picsum.photos/seed/researcher/800/1000"
+                    src="/portfolio/assets/profile.png"
                     alt="Nam Gi Woong"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    className="w-full h-full object-cover mix-blend-multiply brightness-110 contrast-110 transition-all duration-700"
                     referrerPolicy="no-referrer"
                   />
                 </div>
