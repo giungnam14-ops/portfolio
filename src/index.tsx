@@ -406,9 +406,9 @@ const ThesisSection = () => {
 
 const DNABackground = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-1 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-1 overflow-hidden bg-[#020408]">
       {/* Left DNA Helix */}
-      <div className="absolute left-0 md:left-[2%] top-0 h-full w-24 md:w-32 opacity-40">
+      <div className="absolute left-[2%] md:left-[8%] top-0 h-full w-24 md:w-32 opacity-40">
         <svg className="w-full h-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
           {[...Array(20)].map((_, i) => {
             const y = i * 50;
@@ -434,8 +434,7 @@ const DNABackground = () => {
       </div>
 
       {/* Right DNA Helix */}
-      <div className="absolute right-0 md:right-[2%] top-0 h-full w-24 md:w-32 opacity-40">
-
+      <div className="absolute right-[2%] md:right-[8%] top-0 h-full w-24 md:w-32 opacity-40">
         <svg className="w-full h-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
           {[...Array(20)].map((_, i) => {
             const y = i * 50;
