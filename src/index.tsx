@@ -1,34 +1,41 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import './index.css';
-
 import { createRoot } from 'react-dom/client';
-// Lucide icons replaced with pure SVG/Emoji for build stability
-const Icon = ({ name }: { name: string }) => {
-  const icons: Record<string, string> = {
-    User: "👤",
-    Lightbulb: "💡",
-    BrainCircuit: "🧠",
-    RefreshCw: "🔄",
-    Settings: "⚙️",
-    Archive: "📁",
-    Wallet: "💳",
-    MessageSquare: "💬",
-    Clock: "🕒",
-    Layers: "📚",
-    Dna: "🧬",
-    Activity: "📈",
-    FileText: "📝",
-    BarChart3: "📊",
-    ChevronDown: "▼",
-    ArrowRight: "→",
-    FlaskConical: "🧪",
-    CheckCircle2: "✅",
-    Plus: "+",
-    Minus: "-"
-  };
-  return <span>{icons[name] || "•"}</span>;
-};
+import {
+  Dna,
+  Microscope,
+  Target,
+  ChevronDown,
+  ArrowRight,
+  FileText,
+  Layers,
+  Search,
+  Award,
+  Database,
+  Globe,
+  FlaskConical,
+  Activity,
+  Zap,
+  TestTube2,
+  BarChart3,
+  ClipboardCheck,
+  User,
+  Lightbulb,
+  BrainCircuit,
+  Quote,
+  CheckCircle2,
+  Plus,
+  Minus,
+  Settings,
+  RefreshCw,
+  Archive,
+  Wallet,
+  MessageSquare,
+  Clock,
+  TrendingUp,
+  GitBranch,
+  Timer
+} from 'lucide-react';
 
 // --- Content Constants ---
 const CONTENT = {
@@ -40,17 +47,17 @@ const CONTENT = {
     {
       title: "About Me",
       desc: "저는 면역 반응과 기능성 소재의 효과를 연구하며, 실험 결과를 단순히 수치로 비교하기보다 어떤 상황에서 어떤 변화가 나타났는지를 중심으로 살펴왔습니다. 연구 과정 전반에서 결과의 의미를 스스로 납득할 때까지 고민하는 편입니다.",
-      icon: <Icon name="User" />
+      icon: <User className="w-6 h-6 text-emerald-400" />
     },
     {
       title: "How I Research",
       desc: "연구를 진행할 때 “이 결과가 왜 나왔인지”를 먼저 생각합니다. 실험 설계부터 결과 해석까지의 흐름이 끊기지 않도록 신경 쓰며, 가능한 한 메커니즘 관점에서 설명하려고 노력해 왔습니다.",
-      icon: <Icon name="Lightbulb" />
+      icon: <Lightbulb className="w-6 h-6 text-indigo-400" />
     },
     {
       title: "My Strengths",
       desc: "실험 결과를 지표와 맥락을 함께 놓고 해석하는 점, 실험 과정과 결과를 정리해 공유하는 데 익숙한 편, 그리고 연구 결과를 실제 활용 상황에 대입해 생각해보는 태도를 갖추고 있습니다.",
-      icon: <Icon name="BrainCircuit" />
+      icon: <BrainCircuit className="w-6 h-6 text-emerald-400" />
     }
   ],
   lab: {
@@ -77,27 +84,27 @@ const CONTENT = {
     title: "How I Work in Research",
     points: [
       {
-        icon: <Icon name="RefreshCw" />,
+        icon: <RefreshCw className="w-6 h-6 text-emerald-400" />,
         text: "실험 결과를 단순한 수치로 보기보다는, 조건에 따른 변화와 그 원인을 중심으로 정리해왔습니다."
       },
       {
-        icon: <Icon name="Settings" />,
+        icon: <Settings className="w-6 h-6 text-indigo-400" />,
         text: "실험 설계부터 수행, 데이터 정리, 해석까지의 과정이 끊기지 않도록 흐름을 관리하는 방식으로 연구를 진행했습니다."
       },
       {
-        icon: <Icon name="Archive" />,
+        icon: <Archive className="w-6 h-6 text-emerald-400" />,
         text: "연구 결과는 이후 다시 활용할 수 있도록 문서와 데이터 형태로 정리하는 데 집중했습니다."
       },
       {
-        icon: <Icon name="Wallet" />,
+        icon: <Wallet className="w-6 h-6 text-slate-400" />,
         text: "연구실 운영과 관련된 재고 정리, 소모품 관리, 기본적인 회계 업무에도 함께 참여했습니다."
       },
       {
-        icon: <Icon name="MessageSquare" />,
+        icon: <MessageSquare className="w-6 h-6 text-emerald-500" />,
         text: "실험 진행 중 결과 해석이나 실험 설계 방향에 대한 의견 차이가 있을 경우, 실험 조건과 기존 데이터를 기준으로 대안을 정리해 의견을 제시했습니다."
       },
       {
-        icon: <Icon name="Clock" />,
+        icon: <Clock className="w-6 h-6 text-indigo-500" />,
         text: "논의가 길어지거나 방향이 정리되지 않아 실험 진행이 지연되는 상황에서는, 쟁점을 정리해 공유하며 다음 단계로 이어질 수 있도록 조율했습니다."
       }
     ]
@@ -106,22 +113,22 @@ const CONTENT = {
     {
       name: "세포 실험 (In vitro)",
       context: "Cell culture, MTT assay, Luciferase assay, Western blot, mRNA 분리 및 qPCR",
-      icon: <Icon name="Layers" />
+      icon: <Layers className="w-5 h-5" />
     },
     {
       name: "면역·단백질 분석",
       context: "사이토카인 및 단백질 정량 분석 (ELISA)",
-      icon: <Icon name="Dna" />
+      icon: <Dna className="w-5 h-5" />
     },
     {
       name: "동물 실험 (In vivo)",
       context: "마우스 복강 내 주사, 마취, 해부, 조직 채취",
-      icon: <Icon name="Activity" />
+      icon: <Activity className="w-5 h-5" />
     },
     {
       name: "보고서 작성",
       context: "데이터 기반 보고서, 프레젠테이션 자료 작성",
-      icon: <Icon name="FileText" />
+      icon: <FileText className="w-5 h-5" />
     }
   ],
   projects: [
@@ -232,9 +239,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             {project.title}
           </h3>
           <div className="flex items-center gap-4 text-slate-500 text-sm font-bold">
-            <span className="flex items-center gap-2"><Icon name="Clock" /> {project.period}</span>
+            <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {project.period}</span>
             <span className="w-1 h-1 bg-slate-700 rounded-full" />
-            <span className="flex items-center gap-2 text-indigo-400"><Icon name="User" /> {project.role}</span>
+            <span className="flex items-center gap-2 text-indigo-400"><User className="w-4 h-4" /> {project.role}</span>
           </div>
         </div>
       </div>
@@ -281,7 +288,7 @@ const ThesisDetailCard = ({ detail }: ThesisDetailCardProps) => {
       <div className="flex justify-between items-start mb-4">
         <div className="text-emerald-500 font-black text-[10px] tracking-[0.3em] uppercase">{detail.step}</div>
         <div className="pt-1">
-          {isOpen ? <Icon name="Minus" /> : <Icon name="Plus" />}
+          {isOpen ? <Minus className="w-4 h-4 text-emerald-500/50" /> : <Plus className="w-4 h-4 text-white/20 group-hover/item:text-emerald-500 transition-colors" />}
         </div>
       </div>
       <h4 className="text-white text-xl font-black mb-4 tracking-tight">{detail.title}</h4>
@@ -301,7 +308,7 @@ const ThesisDetailCard = ({ detail }: ThesisDetailCardProps) => {
             {detail.step.includes("03") && (
               <div className="mt-6 p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
                 <div className="flex items-center gap-3 text-emerald-400 mb-3">
-                  <Icon name="BarChart3" />
+                  <BarChart3 className="w-4 h-4" />
                   <span className="text-[10px] font-black uppercase tracking-widest">Experimental Evidence</span>
                 </div>
                 <div className="space-y-2">
@@ -361,7 +368,7 @@ const ThesisSection = () => {
               <div className="shrink-0 flex items-center gap-4">
                 <span className="text-slate-500 font-bold tracking-widest uppercase text-xs">{thesis.period}</span>
                 <div className={`w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-white transition-transform duration-500 ${isExpanded ? 'rotate-180 bg-emerald-600' : 'group-hover:scale-110'}`}>
-                  <Icon name="ChevronDown" />
+                  <ChevronDown className="w-6 h-6" />
                 </div>
               </div>
             </div>
@@ -387,7 +394,7 @@ const ThesisSection = () => {
 
             {!isExpanded && (
               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 text-emerald-400 font-black text-[10px] tracking-[0.4em] uppercase animate-pulse">
-                Click to explore research details <Icon name="ArrowRight" />
+                Click to explore research details <ArrowRight className="w-4 h-4" />
               </div>
             )}
           </div>
@@ -397,7 +404,64 @@ const ThesisSection = () => {
   );
 };
 
-const DNABackground = () => null;
+const DNABackground = () => {
+  return (
+    <div className="fixed inset-0 pointer-events-none z-1 overflow-hidden">
+      {/* Left DNA Helix */}
+      <div className="absolute left-0 md:left-[2%] top-0 h-full w-24 md:w-32 opacity-40">
+        <svg className="w-full h-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
+          {[...Array(20)].map((_, i) => {
+            const y = i * 50;
+            const delay = i * 0.2;
+            return (
+              <g key={i}>
+                <circle r="4" fill="#10b981" className="filter drop-shadow-[0_0_10px_rgba(16,185,129,0.9)]">
+                  <animate attributeName="cx" values="15;85;15" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                  <animate attributeName="cy" values={`${y};${y}`} dur="3s" repeatCount="indefinite" />
+                </circle>
+                <circle r="4" fill="#6366f1" className="filter drop-shadow-[0_0_10px_rgba(99,102,241,0.9)]">
+                  <animate attributeName="cx" values="85;15;85" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                  <animate attributeName="cy" values={`${y};${y}`} dur="3s" repeatCount="indefinite" />
+                </circle>
+                <line y1={y} y2={y} stroke="white" strokeWidth="1.5" strokeOpacity="0.4">
+                  <animate attributeName="x1" values="15;85;15" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                  <animate attributeName="x2" values="85;15;85" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                </line>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* Right DNA Helix */}
+      <div className="absolute right-0 md:right-[2%] top-0 h-full w-24 md:w-32 opacity-40">
+
+        <svg className="w-full h-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
+          {[...Array(20)].map((_, i) => {
+            const y = i * 50;
+            const delay = (i * 0.2) + 1.5;
+            return (
+              <g key={i}>
+                <circle r="4" fill="#10b981" className="filter drop-shadow-[0_0_10px_rgba(16,185,129,0.9)]">
+                  <animate attributeName="cx" values="15;85;15" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                  <animate attributeName="cy" values={`${y};${y}`} dur="3s" repeatCount="indefinite" />
+                </circle>
+                <circle r="4" fill="#6366f1" className="filter drop-shadow-[0_0_10px_rgba(99,102,241,0.9)]">
+                  <animate attributeName="cx" values="85;15;85" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                  <animate attributeName="cy" values={`${y};${y}`} dur="3s" repeatCount="indefinite" />
+                </circle>
+                <line y1={y} y2={y} stroke="white" strokeWidth="1.5" strokeOpacity="0.4">
+                  <animate attributeName="x1" values="15;85;15" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                  <animate attributeName="x2" values="85;15;85" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
+                </line>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </div>
+  );
+};
 
 const App = () => {
   return (
@@ -419,7 +483,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 bg-gradient-to-br from-emerald-600 to-indigo-700 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-900/40">
-              <Icon name="FlaskConical" />
+              <FlaskConical className="w-4.5 h-4.5 text-white" />
             </div>
             <span className="font-black text-sm tracking-[0.2em] text-white uppercase">NAM GI WOONG</span>
           </div>
@@ -480,7 +544,7 @@ const App = () => {
           </ScrollReveal>
         </div>
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 animate-bounce opacity-20">
-          <Icon name="ChevronDown" />
+          <ChevronDown className="w-8 h-8 text-white" />
         </div>
       </section>
 
@@ -540,7 +604,7 @@ const App = () => {
                   {CONTENT.lab.focus.map((item, i) => (
                     <div key={i} className="flex gap-6 items-start p-6 rounded-3xl bg-white/5 border border-white/5 hover:bg-emerald-500/5 hover:border-emerald-500/20 transition-all group/item">
                       <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover/item:bg-emerald-500 group-hover/item:text-white transition-all">
-                        <Icon name="CheckCircle2" />
+                        <CheckCircle2 className="w-5 h-5" />
                       </div>
                       <div>
                         <h4 className="text-white font-black text-lg mb-1">{item.title}</h4>
@@ -555,7 +619,7 @@ const App = () => {
                 <div className="absolute -inset-4 bg-emerald-500/10 rounded-[3rem] blur-2xl opacity-50" />
                 <div className="relative aspect-video bg-white/5 border border-white/10 rounded-[2.5rem] flex items-center justify-center overflow-hidden">
                   <div className="text-center p-10">
-                    <Icon name="FlaskConical" />
+                    <FlaskConical className="w-20 h-20 text-emerald-500/20 mx-auto mb-6" />
                     <p className="text-slate-500 font-bold text-sm tracking-widest uppercase">Lab Environment & Research Focus</p>
                   </div>
                 </div>
@@ -646,7 +710,7 @@ const App = () => {
             </h2>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <button className="px-16 py-7 bg-emerald-600 text-white font-bold rounded-[2.5rem] transition-all hover:scale-105 shadow-[0_0_50px_rgba(16,185,129,0.3)] text-xl flex items-center gap-4 group">
-                Contact Now <Icon name="ArrowRight" />
+                Contact Now <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </button>
               <button className="px-16 py-7 border border-white/10 text-white font-bold rounded-[2.5rem] hover:bg-white/5 transition-all text-xl">
                 Download Resume
