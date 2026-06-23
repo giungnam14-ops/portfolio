@@ -34,13 +34,16 @@ import {
   Clock,
   TrendingUp,
   GitBranch,
-  Timer
+  Timer,
+  GraduationCap,
+  MapPin
 } from 'lucide-react';
 
 // --- Content Constants ---
 const CONTENT = {
   hero: {
-    main: "성실함으로 성과를 만드는 연구자",
+    highlight: "성실함",
+    main: "으로 성과를 만드는 연구자",
     sub: "정밀한 데이터 흐름과 재현성 있는 실험으로 연구를 비즈니스 가치로 연결합니다.",
   },
   about: [
@@ -51,13 +54,33 @@ const CONTENT = {
     },
     {
       title: "How I Research",
-      desc: "연구를 진행할 때 “이 결과가 왜 나왔인지”를 먼저 생각합니다. 실험 설계부터 결과 해석까지의 흐름이 끊기지 않도록 신경 쓰며, 가능한 한 메커니즘 관점에서 설명하려고 노력해 왔습니다.",
+      desc: "연구를 진행할 때 “이 결과가 왜 나왔는지”를 먼저 생각합니다. 실험 설계부터 결과 해석까지의 흐름이 끊기지 않도록 신경 쓰며, 가능한 한 메커니즘 관점에서 설명하려고 노력해 왔습니다.",
       icon: <Lightbulb className="w-6 h-6 text-indigo-400" />
     },
     {
       title: "My Strengths",
-      desc: "실험 결과를 지표와 맥락을 함께 놓고 해석하는 점, 실험 과정과 결과를 정리해 공유하는 데 익숙한 편, 그리고 연구 결과를 실제 활용 상황에 대입해 생각해보는 태도를 갖추고 있습니다.",
+      desc: "실험 결과를 지표와 맥락을 함께 놓고 해석하고, 실험 과정과 결과를 정리해 공유하며, 연구 결과를 실제 활용 상황에 대입해 생각하는 강점이 있습니다.",
       icon: <BrainCircuit className="w-6 h-6 text-emerald-400" />
+    }
+  ],
+  education: [
+    {
+      degree: "약학 석사 (생명약학)",
+      degreeEn: "M.S. in Pharmacy, Life Pharmaceutical Science",
+      school: "가톨릭대학교 대학원",
+      schoolEn: "The Catholic University of Korea",
+      period: "2022.08 - 2024.08",
+      gpa: "4.38 / 4.5",
+      detail: "생체방어 및 염증제어 연구실 · 지도교수 이주영 (Prof. Joo Young Lee)"
+    },
+    {
+      degree: "의생명과학 학사",
+      degreeEn: "B.S. in Biomedical Science",
+      school: "가톨릭관동대학교",
+      schoolEn: "Catholic Kwandong University",
+      period: "2017.02 - 2022.02",
+      gpa: "3.27 / 4.5",
+      detail: ""
     }
   ],
   lab: {
@@ -122,7 +145,7 @@ const CONTENT = {
     },
     {
       name: "동물 실험 (In vivo)",
-      context: "마우스 복강 내 주사, 마취, 해부, 조직 채취",
+      context: "마우스 복강 내 주사 및 경구 투여, 마취·해부·조직 채취, 골수세포 분리 (BMDC/BMDM), 조직 균질화 및 조직 기반 qRT-PCR/Western blot, 혈청 생화학 분석 (ALT, AST, BUN)",
       icon: <Activity className="w-5 h-5" />
     },
     {
@@ -136,32 +159,49 @@ const CONTENT = {
       title: "화장품 원료의 안전성 검토를 위한 위해성평가 연구 - 기타 성분(1)",
       period: "2024.02 - 2024.12",
       role: "참여연구원",
-      description: "국가 R&D 과제로서 화장품 원료의 안전성을 검토하고 위해성 평가를 수행하여 제품 안전 관리의 과학적 근거를 마련했습니다.",
+      affiliation: "단국대학교 · 식약처(MFDS) 관련 국가 R&D 과제",
+      description: "화장품 원료의 안전성 검토를 위한 위해성평가 국가 R&D 과제에 참여연구원으로 참여했습니다.",
       tasks: [
-        "화장품 원료별 독성 자료 수집 및 위해도 결정 (Risk Characterization)",
-        "정부 지원 국가 연구 과제 수행 및 데이터 검증",
-        "규제 대응을 위한 위해성 평가 보고서 작성 및 최적화"
+        "화장품 원료 관련 문헌 조사 및 자료 검토",
+        "연구 데이터 정리 및 가공",
+        "연구 자료 작성 지원"
       ],
-      tags: ["Risk Assessment", "Regulatory Affairs", "Safety Review"]
+      tags: ["Risk Assessment", "Cosmetic Safety", "Literature Review"]
     },
     {
       title: "화장품 안전관리 기반 강화를 위한 위해평가 기술 고도화(1)",
       period: "2023.01 - 2023.11",
       role: "참여연구원",
-      description: "화장품 안전 관리 체계의 고도화를 위해 위해평가 기술을 연구하고 관련 데이터를 정교화하는 프로젝트에 참여했습니다.",
+      affiliation: "단국대학교 · 식약처(MFDS) 관련 국가 R&D 과제",
+      description: "화장품 안전관리 기반 강화를 위한 위해평가 기술 고도화 국가 R&D 과제에 참여연구원으로 참여했습니다.",
       tasks: [
-        "위해평가 기술 고도화를 위한 기술적 지표 분석 및 데이터 정리",
-        "대형 국가 연구 과제 참여를 통한 연구 프로세스 지원",
-        "안전관리 기반 강화를 위한 유효 지표 추적 및 분석"
+        "과제 관련 문헌 조사",
+        "연구 문서화 및 자료 정리 지원"
       ],
-      tags: ["Technology Advancement", "Safety Management", "Data Analysis"]
+      tags: ["Safety Management", "Risk Assessment", "Documentation"]
+    }
+  ],
+  presentations: [
+    {
+      title: "Inhibitory Effects of Licochalcone A on cGAS Agonist-Induced IRF3 Activation in Innate Immune Cells",
+      authors: "Gi Woong Nam, Joo Young Lee",
+      venue: "2023 Fall International Convention of the Pharmaceutical Society of Korea (대한약학회 2023 추계 학술대회)",
+      date: "2023.10.26 - 10.27",
+      type: "Poster Presentation"
+    },
+    {
+      title: "Licochalcone A Suppresses IRF3 Stimulation Induced by cGAS/STING Activation",
+      authors: "Gi Woong Nam, Joo Young Lee",
+      venue: "The 39th Annual Meeting of KSOT/KEMS, International Convention Center Jeju",
+      date: "2023.10.30 - 11.01",
+      type: "Poster Presentation"
     }
   ],
   thesis: {
     title: "Licochalcone A에 의한 cGAS/STING 경로 억제 및 항염증 기전 연구",
     subtitle: "Master's Thesis / 천연물 유래 성분의 항염 기전 규명 및 데이터 패키징",
-    period: "2022.03 - 2024.02",
-    summary: "기존 항염 소자의 부작용을 보완할 수 있는 고효율·저독성 천연물 후보 물질의 상세 작용 원리 근거 부족 문제를 해결하기 위해 cGAS/STING 경로를 중심으로 기전을 규명했습니다.",
+    period: "2022.08 - 2024.08",
+    summary: "기존 항염 소재는 효과가 있어도 부작용 문제가 있고, 이를 보완할 천연물 후보 물질은 상세한 작용 원리에 대한 근거가 부족했습니다. 본 연구는 이 문제를 해결하기 위해 cGAS/STING 경로를 중심으로 그 항염 기전을 규명했습니다.",
     details: [
       {
         step: "01. cGAS Definition",
@@ -238,11 +278,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight leading-tight group-hover:text-emerald-400 transition-colors">
             {project.title}
           </h3>
-          <div className="flex items-center gap-4 text-slate-500 text-sm font-bold">
+          <div className="flex flex-wrap items-center gap-4 text-slate-500 text-sm font-bold">
             <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {project.period}</span>
             <span className="w-1 h-1 bg-slate-700 rounded-full" />
             <span className="flex items-center gap-2 text-indigo-400"><User className="w-4 h-4" /> {project.role}</span>
           </div>
+          <p className="text-slate-500 text-xs font-bold tracking-wide flex items-center gap-2">
+            <GraduationCap className="w-4 h-4 text-slate-600" /> {project.affiliation}
+          </p>
         </div>
       </div>
 
@@ -309,18 +352,13 @@ const ThesisDetailCard = ({ detail }: ThesisDetailCardProps) => {
               <div className="mt-6 p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/10">
                 <div className="flex items-center gap-3 text-emerald-400 mb-3">
                   <BarChart3 className="w-4 h-4" />
-                  <span className="text-[10px] font-black uppercase tracking-widest">Experimental Evidence</span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">Key Findings</span>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-[10px] font-bold text-slate-500">
-                    <span>Lico A Concentration</span>
-                    <span>Inhibition Rate</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
-                    <div className="h-full bg-emerald-500 w-[85%]" />
-                  </div>
-                  <p className="text-[10px] text-slate-500 text-right">85% Inhibition at 10μM (p &lt; 0.001)</p>
-                </div>
+                <ul className="space-y-2 text-[11px] text-slate-400 font-medium leading-relaxed">
+                  <li className="flex gap-2"><span className="text-emerald-500">·</span> Lico A 농도 의존적(5, 10 μM)으로 reporter 발광 신호 유의미하게 감소</li>
+                  <li className="flex gap-2"><span className="text-emerald-500">·</span> P-STING / P-TBK1 / P-IRF3 단백질 발현 감소 확인</li>
+                  <li className="flex gap-2"><span className="text-emerald-500">·</span> IFN-β · IL-6 mRNA 및 단백질 발현 억제 경향 관찰</li>
+                </ul>
               </div>
             )}
           </div>
@@ -486,10 +524,19 @@ const App = () => {
             </div>
             <span className="font-black text-sm tracking-[0.2em] text-white uppercase">NAM GI WOONG</span>
           </div>
-          <div className="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">
-            {['Hero', 'About', 'Lab', 'Thesis', 'Projects', 'Method', 'Expertise'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase() === 'method' ? 'work-method' : item.toLowerCase() === 'expertise' ? 'skills' : item.toLowerCase()}`} className="hover:text-emerald-400 transition-all">
-                {item}
+          <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">
+            {[
+              { label: 'About', id: 'about' },
+              { label: 'Education', id: 'education' },
+              { label: 'Lab', id: 'lab' },
+              { label: 'Thesis', id: 'thesis' },
+              { label: 'Projects', id: 'projects' },
+              { label: 'Activity', id: 'presentations' },
+              { label: 'Method', id: 'work-method' },
+              { label: 'Expertise', id: 'skills' },
+            ].map((item) => (
+              <a key={item.id} href={`#${item.id}`} className="hover:text-emerald-400 transition-all">
+                {item.label}
               </a>
             ))}
           </div>
@@ -509,7 +556,7 @@ const App = () => {
                 Precision R&D Architect
               </div>
               <h1 className="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight whitespace-pre-line">
-                <span className="text-emerald-400">성실함</span>으로 성과를 만드는 연구자
+                <span className="text-emerald-400">{CONTENT.hero.highlight}</span>{CONTENT.hero.main}
               </h1>
               <h2 className="text-xl text-slate-400 max-w-xl leading-relaxed font-medium">
                 {CONTENT.hero.sub}
@@ -568,7 +615,49 @@ const App = () => {
         </div>
       </section>
 
-      {/* Screen 3: MASTER'S LAB */}
+      {/* Screen 3: EDUCATION */}
+      <section id="education" className="py-40 px-6 max-w-7xl mx-auto relative z-10">
+        <ScrollReveal>
+          <div className="mb-24 text-center">
+            <span className="text-emerald-400 font-bold uppercase tracking-[0.4em] text-[10px] block mb-4">Academic Path</span>
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-8">Education</h2>
+            <p className="max-w-3xl mx-auto text-slate-400 text-lg font-medium leading-relaxed">
+              학부에서 의생명과학의 기초를 다지고, 석사 과정에서 면역학 연구로 전문성을 심화했습니다.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {CONTENT.education.map((edu, i) => (
+              <div key={i} className="relative p-12 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-emerald-500/30 transition-all duration-500 group">
+                <div className="flex items-start justify-between mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                    <GraduationCap className="w-6 h-6" />
+                  </div>
+                  <span className="px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-black tracking-widest">
+                    GPA {edu.gpa}
+                  </span>
+                </div>
+                <h3 className="text-white text-2xl font-black tracking-tight mb-2">{edu.degree}</h3>
+                <p className="text-emerald-400/80 text-xs font-bold tracking-wide uppercase mb-6">{edu.degreeEn}</p>
+                <div className="space-y-1 mb-6">
+                  <p className="text-slate-200 text-lg font-bold">{edu.school}</p>
+                  <p className="text-slate-500 text-sm font-medium">{edu.schoolEn}</p>
+                </div>
+                <div className="flex items-center gap-2 text-slate-500 text-sm font-bold mb-4">
+                  <Clock className="w-4 h-4" /> {edu.period}
+                </div>
+                {edu.detail && (
+                  <p className="text-slate-400 text-sm font-medium leading-relaxed pt-4 border-t border-white/5">
+                    {edu.detail}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* Screen 4: MASTER'S LAB */}
       <section id="lab" className="py-40 px-6 max-w-7xl mx-auto relative z-10">
         <ScrollReveal>
           <div className="mb-24 text-center">
@@ -628,10 +717,10 @@ const App = () => {
         </ScrollReveal>
       </section>
 
-      {/* Screen 4: MASTER'S THESIS */}
+      {/* Screen 5: MASTER'S THESIS */}
       <ThesisSection />
 
-      {/* Screen 5: R&D PROJECTS */}
+      {/* Screen 6: R&D PROJECTS */}
       <section id="projects" className="py-40 px-6 max-w-7xl mx-auto relative z-10">
         <ScrollReveal>
           <div className="mb-24 text-center">
@@ -649,7 +738,46 @@ const App = () => {
         </ScrollReveal>
       </section>
 
-      {/* Screen 5: HOW I WORK IN RESEARCH */}
+      {/* Screen 7: PRESENTATIONS */}
+      <section id="presentations" className="py-40 px-6 max-w-7xl mx-auto relative z-10">
+        <ScrollReveal>
+          <div className="mb-24 text-center">
+            <span className="text-emerald-400 font-bold uppercase tracking-[0.4em] text-[10px] block mb-4">Academic Activity</span>
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight mb-8">Presentations</h2>
+            <p className="max-w-3xl mx-auto text-slate-400 text-lg font-medium leading-relaxed">
+              연구 결과를 국내 주요 학회에서 발표하며 학술 커뮤니티와 공유했습니다.
+            </p>
+          </div>
+
+          <div className="grid gap-8">
+            {CONTENT.presentations.map((item, i) => (
+              <div key={i} className="group flex flex-col md:flex-row gap-8 p-10 md:p-12 rounded-[3rem] bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-emerald-500/30 transition-all duration-500">
+                <div className="shrink-0 flex md:flex-col items-center md:items-start gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                    <Award className="w-7 h-7" />
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-400 text-[10px] font-black tracking-widest uppercase whitespace-nowrap">
+                    {item.type}
+                  </span>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-white text-xl md:text-2xl font-black tracking-tight leading-snug group-hover:text-emerald-400 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm font-medium">{item.authors}</p>
+                  <div className="flex flex-wrap items-center gap-4 text-slate-500 text-sm font-bold pt-2 border-t border-white/5">
+                    <span className="flex items-center gap-2"><MapPin className="w-4 h-4" /> {item.venue}</span>
+                    <span className="w-1 h-1 bg-slate-700 rounded-full hidden md:block" />
+                    <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {item.date}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+      </section>
+
+      {/* Screen 8: HOW I WORK IN RESEARCH */}
       <section id="work-method" className="py-40 px-6 relative z-10 bg-emerald-600/[0.02]">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
@@ -676,7 +804,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Screen 5: SKILLS & EXPERTISE */}
+      {/* Screen 9: SKILLS & EXPERTISE */}
       <section id="skills" className="py-40 px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-24">
           <span className="text-emerald-400 font-bold uppercase tracking-[0.4em] text-[10px] block mb-4">R&D Toolbox</span>
@@ -700,7 +828,7 @@ const App = () => {
         </div>
       </section>
 
-      {/* Screen 6: CLOSING */}
+      {/* Screen 10: CLOSING */}
       <footer className="py-60 bg-[#020408] border-t border-white/5 text-center relative overflow-hidden z-10">
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <ScrollReveal>
@@ -708,15 +836,15 @@ const App = () => {
               {CONTENT.closing}
             </h2>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="px-16 py-7 bg-emerald-600 text-white font-bold rounded-[2.5rem] transition-all hover:scale-105 shadow-[0_0_50px_rgba(16,185,129,0.3)] text-xl flex items-center gap-4 group">
+              <a href="mailto:kevin7264@naver.com" className="px-16 py-7 bg-emerald-600 text-white font-bold rounded-[2.5rem] transition-all hover:scale-105 shadow-[0_0_50px_rgba(16,185,129,0.3)] text-xl flex items-center gap-4 group">
                 Contact Now <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
               <button className="px-16 py-7 border border-white/10 text-white font-bold rounded-[2.5rem] hover:bg-white/5 transition-all text-xl">
                 Download Resume
               </button>
             </div>
             <div className="mt-40 pt-16 border-t border-white/5 text-slate-600 text-[10px] font-bold tracking-[0.6em] uppercase flex flex-col md:flex-row justify-between items-center gap-8">
-              <span>&copy; 2024 NAM GI WOONG / R&D PORTFOLIO</span>
+              <span>&copy; 2024–2026 NAM GI WOONG / R&D PORTFOLIO</span>
               <div className="flex gap-12 text-[11px]">
                 <span className="hover:text-white cursor-pointer transition-colors">LinkedIn</span>
                 <span className="hover:text-white cursor-pointer transition-colors">Google Scholar</span>
