@@ -710,7 +710,7 @@ const App = () => {
                   className="inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-bold hover:bg-emerald-500 hover:text-white transition-all group/link"
                 >
                   <Globe className="w-4 h-4" />
-                  BRIC 연구실 소개 보기
+                  석사 연구실 소개 보기
                   <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                 </a>
               </div>
