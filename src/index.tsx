@@ -717,10 +717,16 @@ const App = () => {
 
               <div className="relative">
                 <div className="absolute -inset-4 bg-emerald-500/10 rounded-[3rem] blur-2xl opacity-50" />
-                <div className="relative aspect-video bg-white/5 border border-white/10 rounded-[2.5rem] flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-10">
-                    <FlaskConical className="w-20 h-20 text-emerald-500/20 mx-auto mb-6" />
-                    <p className="text-slate-500 font-bold text-sm tracking-widest uppercase">Lab Environment & Research Focus</p>
+                <div className="relative aspect-video bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden">
+                  <img
+                    src="/portfolio/assets/lab.jpg"
+                    alt="생체방어 및 염증제어 연구실 구성원"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#020408]/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-8 right-8">
+                    <p className="text-white font-bold text-sm tracking-widest uppercase">Lab Environment &amp; Research Focus</p>
                   </div>
                 </div>
               </div>
