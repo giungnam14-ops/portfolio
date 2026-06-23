@@ -87,6 +87,7 @@ const CONTENT = {
     name: "생체방어 및 염증제어 연구실",
     affiliation: "가톨릭대학교 약학대학",
     pi: "이주영 교수님",
+    link: "https://www.ibric.org/bric/interview/biolab.do?mode=view&articleNo=9937953&title=%EA%B0%80%ED%86%A8%EB%A6%AD%EB%8C%80%ED%95%99%EA%B5%90+%EC%95%BD%ED%95%99%EB%8C%80%ED%95%99+%EC%83%9D%EC%B2%B4%EB%B0%A9%EC%96%B4+%EB%B0%8F+%EC%97%BC%EC%A6%9D%EC%A0%9C%EC%96%B4+%EC%97%B0%EA%B5%AC%EC%8B%A4",
     description: "선천면역 반응의 핵심 조절 기전을 연구하며, 염증 반응을 제어할 수 있는 새로운 타겟과 후보 물질을 발굴하는 연구실입니다.",
     focus: [
       {
@@ -701,6 +702,17 @@ const App = () => {
                     </div>
                   ))}
                 </div>
+
+                <a
+                  href={CONTENT.lab.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm font-bold hover:bg-emerald-500 hover:text-white transition-all group/link"
+                >
+                  <Globe className="w-4 h-4" />
+                  BRIC 연구실 소개 보기
+                  <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                </a>
               </div>
 
               <div className="relative">
