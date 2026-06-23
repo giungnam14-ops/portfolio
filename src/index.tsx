@@ -721,8 +721,8 @@ const App = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 px-7 py-4 rounded-2xl bg-white/5 border border-white/10 text-slate-300 text-sm font-bold hover:bg-white/10 hover:text-white transition-all group/link2"
                   >
-                    <FileText className="w-4 h-4" />
-                    연구실 인터뷰 (BRIC)
+                    <User className="w-4 h-4" />
+                    지도교수님 소개 (BRIC)
                     <ArrowRight className="w-4 h-4 group-hover/link2:translate-x-1 transition-transform" />
                   </a>
                 </div>
